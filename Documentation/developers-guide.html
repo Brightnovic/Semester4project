@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="style.css" />
+	<link
+		href="http://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic|Raleway:400,100,200,300,500,600,700,800,900|Noto+Sans:400,400italic,700,700italic|Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"
+		rel="stylesheet" type="text/css">
+	<script src="jquery-1.7.2.min.js"></script>
+	<script>
+		//smooth scroll by id
+		$(document).ready(function () {
+			function filterPath(string) {
+				return string
+					.replace(/^\//, "")
+					.replace(/(index|default).[a-zA-Z]{3,4}$/, "")
+					.replace(/\/$/, "");
+			}
+			var locationPath = filterPath(location.pathname);
+			var scrollElem = scrollableElement("html", "body");
+
+			$("a[href*=#]").each(function () {
+				var thisPath = filterPath(this.pathname) || locationPath;
+				if (locationPath == thisPath
+					&& (location.hostname == this.hostname || !this.hostname)
+					&& this.hash.replace(/#/, "")) {
+					var $target = $(this.hash), target = this.hash;
+					if (target) {
+						var targetOffset = $target.offset().top;
+						$(this).click(function (event) {
+							event.preventDefault();
+							$(scrollElem).animate({ scrollTop: targetOffset }, 900, function () {
+								location.hash = target;
+							});
+						});
+					}
+				}
+			});
+
+			// use the first element that is "scrollable"
+			function scrollableElement(els) {
+				for (var i = 0, argLength = arguments.length; i < argLength; i++) {
+					var el = arguments[i],
+						$scrollElement = $(el);
+					if ($scrollElement.scrollTop() > 0) {
+						return el;
+					} else {
+						$scrollElement.scrollTop(1);
+						var isScrollable = $scrollElement.scrollTop() > 0;
+						$scrollElement.scrollTop(0);
+						if (isScrollable) {
+							return el;
+						}
+					}
+				}
+				return [];
+			}
+
+
+			$(function () {
+				$("#accordion .content").hide();
+				$("#accordion h2:first").addClass("active").next().slideDown("slow");
+				$("#accordion h2").click(function () {
+					if ($(this).next().is(":hidden")) {
+						$("#accordion h2").removeClass("active").next().slideUp("slow");
+						$(this).toggleClass("active").next().slideDown("slow");
+					}
+				});
+			});
+
+		});
+
+	</script>
+	<title>Documentation</title>
+</head>
+
+<body>
+	<div class="left-side-menu">
+		<ul>
+			<li><a href="#block1" title="">Introduction</a></li>
+			<li><a href="#block11" title="">installation</a></li>
+			<li><a href="#block2" title="">The Package Includes</a></li>
+			<li><a href="#block3" title="">Prominent Features</a></li>
+			<li><a href="#block4" title="">Javasripts</a></li>
+			<li><a href="#block5" title="">Css Files</a></li>
+			<li><a href="#block55" title="">Python Files</a></li>
+			<li><a href="#block6" title="">Code Structure</a></li>
+			<li><a href="#block7" title="">How to</a></li>
+			<li><a href="#block8" title="">Admin panel</a></li>
+		</ul>
+	</div>
+
+	<div class="container">
+		<div class="top-box">
+			<div class="title">
+				<h1 id="top">Fitness First GYM</h1>
+			</div>
+			<div class="meta">
+				Project by Aptech Students</a>
+			</div>
+		</div>
+		<div class="content">
+			<div class="section">
+				<div class="title">
+					<h2 id="block1">Introduction:</h2>
+				</div>
+				<div class="title">
+					<p>Fitness First GYM is a Project created for Gym, Yoga, Fitness Clubs, Crossfit Boxes, Sports &
+						Health Websites, Personal Trainer and any other sports businesses. It has beautiful pages and
+						useful inner pages.
+						You can customize it very easy to fit your business needs. The Project file is perfectly
+						organized, so You could easily customize everything. Fitness First GYM Project uniqueness is due
+						to its amazingly beautiful designs and easy to use Website that maximizes user satisfaction..
+					</p>
+
+
+				</div>
+				<div class="section">
+					<div class="title">
+						<h2 id="block11">installation:</h2>
+					</div>
+					<div class="title">
+						<p>Step 1: Install Python</p>
+						<p>Download the latest version of Python from the official Python website: <a
+								href="https://python.org/" _blank>GET</a>. Follow the installation instructions to
+							install Python on your computer.</p>
+
+						<p>Step 2: Install pip</p>
+						<p>pip is the package installer for Python. It usually comes bundled with Python, but if you
+							don't have it, you can download and install it from the official pip website: <a
+								href="https://python.org/"> GET</a>.</p>
+
+						<p>Step 3: Install virtualenv</p>
+						<p>Virtualenv is a tool that allows you to create isolated Python environments. Install it using
+							pip: <code>pip install virtualenv</code></p>
+
+						<p>Step 4: Create a new virtual environment</p>
+						<p>Create a new virtual environment using the following command: <code>virtualenv myenv</code>
+							(replace "myenv" with the name of your environment).</p>
+
+						<p>Step 5: Activate the virtual environment</p>
+						<p>To activate the virtual environment on Windows, run: <code>myenv\Scripts\activate</code>. On
+							macOS or Linux, run: <code>source myenv/bin/activate</code>.</p>
+
+						<p>Step 6: Install Django</p>
+						<p>Install Django using pip: <code>pip install django</code></p>
+
+						<p>Step 7: Verify Django installation</p>
+						<p>Verify that Django has been installed correctly by running:
+							<code>django-admin --version</code>. This should print the version of Django that you just
+							installed.</p>
+
+
+					</div>
+
+
+
+					<div class="section">
+						<div class="title">
+							<h2 id="block2">The Website Includes:</h2>
+						</div>
+						<ul>
+
+							<li>Ultra-fresh and flexible layout. Well-commented, fully streamlined and differentiated
+								coding for easier editing and personalization.</li>
+							<li>Personal Trainer, Sport coach Layouts & More</li>
+							<li>Classes Gym Yoga fitness body builder Coach</li>
+							<li>Complete Body Building Gym & Fitness </li>
+							<li>Modern Design & Easy Customization</li>
+
+							<li>Feedback popup for error or success message which helps the user know what's up </li>
+							<li>payment gateway and download able receipt after payment</li>
+							<li>error handling for over booking and abusing of packages by trainers</li>
+							<li>dashboard for admin where admin can manage every model created for the gym system</li>
+							<li></li>
+						</ul>
+					</div>
+					<div class="section">
+						<div class="title">
+							<h2 id="block3">Prominent Features:</h2>
+						</div>
+						<p>
+							<strong>Fitness First GYM Website Package:</strong>
+							Fitness First GYM is a visually impressive, creative and vibrant, well structured, feature
+							rich and responsive HTML5 Template
+						</p>
+
+
+
+						<p>
+							<strong>Fully Streamlined, Differentiated Coding: </strong>
+							: The coding of the template is based on high standards and top-line professionalism.
+							Special focus on minimalism makes it considerably lightweight for smoother and quicker page
+							loading. Meanwhile, the streamlined and differentiated coding contributes to the convenient
+							and interactive editing of the features and sections.
+						</p>
+
+
+
+					</div>
+
+					<div class="section">
+						<div class="title">
+							<h2 id="block4">Javasripts:</h2>
+						</div>
+						<p><strong>bootstrap.min.js:</strong>It is a Bootstrap file with the latest version (v5.0).
+							Certain elements (such as tabs) in the template have been designed with the help of this
+							file.</p>
+						<p><strong>jquery.min.js:</strong>This particular jQuery file renders functionality to all the
+							other jQuery files featured in the GymOn HTML template.</p>
+						<p><strong>aos.js:</strong>This is animate on scroll js file. You can easily animate your
+							desired section with the help of aos.js</p>
+						<p><strong>jquery.counterup.min.js:</strong>This plugin is used to add animation on funfacts.
+						</p>
+						<p><strong>jquery.fancybox.min.js:</strong>This plugin is used to open an image in popup</p>
+						<p><strong>slick.min.js:</strong>This plugin is used for creating awesome slider</p>
+						<p><strong>Custom.js:</strong>It contains all the jQuery functions that have been incorporated
+							in the template. It is well managed and properly commented.</p>
+
+					</div>
+					<div class="section">
+						<div class="title">
+							<h2 id="block5">Css Files:</h2>
+						</div>
+						<p><strong>style.css</strong>This is the main style file on which the overall styling of the
+							template is based.</p>
+						<p><strong>responsive.css</strong>This CSS file gets automatically activated when you are using
+							the template on smaller screen sizes. </p>
+						<p><strong>bootstrap.min.css</strong>As the template has been developed on ‘bootstrap’, all the
+							styles of this framework are based on this CSS file.</p>
+						<p><strong>animate.min.css</strong>The style for adding unique animation on pages.</p>
+						<p><strong>all.min.css</strong>The style for fontawesome icons.</p>
+						<p><strong>color.css</strong>As the name suggests, the file belongs to the colour selection.</p>
+						<p><strong>Slick.css</strong>This is very necessery file for making sliders for the webpages.
+						</p>
+						<p><strong>Animate.min.css</strong>With this file, We can apply very attractive animation
+							effects on the section of the website.</p>
+						<p><strong>Fancybox.min.css</strong>This file is use for showing images and videos in popup.</p>
+					</div>
+
+					<div class="section">
+						<div class="title">
+							<h2 id="block55">Python Files:</h2>
+						</div>
+						<p><strong> 'Main'</strong>This is the main application where python files are </p>
+						<p><strong>models.py</strong> this files contains every sql design needed for this project it
+							can be modified if needed </p>
+						<p><strong>urls.py</strong> here we listed every path needed for this project .</p>
+						<p><strong>views.py</strong> this file contains views and function needed for this project, this
+							files contains restriction for user according to what should be available for them.</p>
+						<p><strong>base.html</strong> this files contains the navbar and footer that we extends to other
+							pages to make development easier and fast it has no bad side effect, this file also contains
+							the linking of css and javascript files used for this project</p>
+						<p><strong>admin.py</strong> this is where we register the models we need on the admin dashboard
+						</p>
+						<p><strong>utils.py</strong> this is where we added the payment code needed for this project
+						<p>
+						<p><strong> 'Templates/Main'</strong> this is where the html templates are stored </p>
+						<p><strong>settings.py</strong>This file is the settings for our application.</p>
+						<p><strong>forms.py</strong>This file is for forms </p>
+					</div>
+
+
+
+
+					<div class="section">
+						<div class="title">
+							<h2 id="block6">CODE STRUCTURE:</h2>
+						</div>
+						<div class="screenshot"><img src="images/screenshot9.jpg" alt="" /></div>
+						<div class="screenshot"><img src="images/screenshot-base.jpg" alt="" /></div>
+					</div>
+
+					<div class="section">
+						<div class="title">
+							<h2 id="block7">How to</h2>
+						</div>
+
+						<div id="accordion">
+
+							<h2>How to manage gaps between the sections?</h2>
+							<div class="content">
+								<p>For the top and bottom spacing for each section, the class <code>"gap"</code>has been
+									used, which applies 120 pixels spacing to the section both from the top and bottom.
+								</p>
+								<p>You can manage the inter-section spacing easily according to your page flow.When you
+									use sections one after another, the spacing between the two sections becomes 120
+									pixels as the bottom space of the top section and the top space of the bottom
+									section will join, and it will become awkward spacing.To manage this spacing between
+									the consecutive sections use class <code>"no-bottom"</code> with the
+									<code>"gap"</code> class in the section from which you want to avoid top space.</p>
+								<p><code>&lt;div class="no-top" </code></p>
+
+							</div>
+
+							<h2>How to define your own new color scheme?</h2>
+							<div class="content">
+								<p>If you wish to change the color scheme of the template, it is very easy to define and
+									apply it. Go to the "assets" folder. You will find "css" folder inside it. In this
+									folder, you can locate "color.css" file. Open it in the editor. You will see a long
+									list of classes separated with commas (,). Here you need to change the css
+									properties for the background, color and border. For this purpose, just change the
+									color code in that file and the color scheme will be changed in the whole template.
+								</p>
+							</div>
+
+							<h2>How to recovery a password ?</h2>
+							<div class="content">
+								<p> the path /admin/ has a forgetten password on it which a super user can click and
+									reset password</p>
+							</div>
+
+
+
+							<h2>How to edit packages details</h2>
+							<div class="content">
+								<p> the path /admin/ has all the packages listed which can be modify</p>
+							</div>
+
+
+
+							<h2>security added for payment?</h2>
+							<div class="content">
+								<p> Trainers can see who booked their packages, they can also approve or reject the
+									booking but cant approve a booking where payment status is pending a security has
+									been added against that so every user must go through payment, so it cant be
+									bypassed by any way only super users can approve a payment incase </p>
+							</div>
+
+
+
+
+						</div>
+					</div>
+					<div class="section">
+						<div class="title">
+							<h2 id="block8">Admin</h2>
+						</div>
+
+						<div class="screenshot"><img src="images/adminpanel.jpg" alt="" /></div>
+					</div>
+				</div>
+			</div>
+</body>
+
+</html>
