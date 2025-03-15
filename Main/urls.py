@@ -43,3 +43,10 @@ urlpatterns = [
     path('admin/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('admin/reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 ]
+
+
+from django.urls import get_resolver
+
+print("=== Available URLs ===")
+for url in get_resolver().url_patterns:
+    print(url)
