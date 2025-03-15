@@ -85,6 +85,9 @@ AUTH_USER_MODEL = 'Main.CustomUser'  # Adjust 'Main' to your actual app name
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CSRF_TRUSTED_ORIGINS = [
+    "https://semester4project.onrender.com",
+]
 
 
 WSGI_APPLICATION = 'Gym_App.wsgi.application'
