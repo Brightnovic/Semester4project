@@ -47,6 +47,4 @@ urlpatterns = [
 
 from django.urls import get_resolver
 
-print("=== Available URLs ===")
-for url in get_resolver().url_patterns:
-    print(url)
+ 
