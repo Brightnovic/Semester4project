@@ -1,0 +1,556 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Options -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> {{ title }} </title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/heading-icon.png' %}">
+    <link rel="stylesheet" href="{% static 'font/flaticon_mycollection.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nice-select.css' %}">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-dark.css' %}">
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+    <style>
+        .djangomessage-error,
+        .djangomessage-success {
+            z-index: 999999999;
+            position: relative;
+            background-color: black;
+            top: 40px;
+            font-weight: bold;
+            font-style: italic;
+            font-size: larger;
+            padding: 1rem;
+            border-radius: 5px;
+            animation: fade-out 10s forwards;
+        }
+
+        .djangomessage-error {
+            color: red;
+        }
+
+        .djangomessage-success {
+            color: green;
+        }
+
+        .dcenter {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+
+            }
+        }
+    </style>
+</head>
+
+<body class="light-d">
+    <!-- Loader Start -->
+
+    <div class="preloader">
+        <div class="loader-wrap-heading">
+            <div class="load-text">
+
+                <span>F</span> <span>i</span> <span>t</span> <span>n</span> <span>e</span> <span>s</span> <span>s</span>
+                <span>F</span> <span>i</span> <span>r</span> <span>s</span> <span>t</span>
+                <span>G</span> <span>y</span> <span>m</span>
+                <span>C</span> <span>e</span> <span>n</span> <span>t</span> <span>e</span> <span>r</span>
+            </div>
+        </div>
+    </div>
+    <!-- Loader End -->
+    <!-- message alert start -->
+    <div class="dcenter">
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.tags == 'success' %}
+        <div class="djangomessage-success">
+            {{ message }}
+        </div>
+        {% elif message.tags == 'error' %}
+        <div class="djangomessage-error">
+            {{ message }}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+    <!-- message  alert End -->
+
+    <!-- Header Style One Start -->
+    <header class="header-style-one">
+        <div class="container">
+            <div class="row">
+                <div class="desktop-nav" id="stickyHeader">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="d-flex-all justify-content-between">
+                                    <div class="header-logo">
+                                        <a href="#">
+                                            <figure>
+                                                <!-- logo -->
+                                                <div style="display: flex; fill:red; ">
+
+                                                    <svg width="50" height="50" viewBox="0 0 261 235"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+                                                        </path>
+                                                    </svg>
+                                                    <div class=" text-white h5 text-nowrap">
+                                                        Fitness First
+                                                        <div class=" text-white h5">
+                                                            Gym</div>
+                                                    </div>
+
+                                                </div>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="nav-bar">
+                                        <ul>
+                                            <li class=" ">
+                                                <a href="{% url 'home'  %}">Home</a>
+
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="javascript:void(0)">About</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="{% url 'about_us'  %}">About</a></li>
+                                                    <li><a href="{% url 'features_benefit' %}">features & benefits</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children"><a href="JavaScript:void(0)">Pages</a>
+                                                <ul class="sub-menu">
+                                                    <li class=" ">
+                                                        <a href="{% url  'services' %}">Services</a>
+
+                                                    </li>
+                                                    <li class=" ">
+                                                        {% if request.user.is_authenticated %}
+                                                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                                                    {% else %}
+
+                                                    {% endif %}
+
+                                            </li>
+
+                                            <li class=" backdrop:">
+                                                <a href="{% url 'packages' %}">Packages</a>
+
+
+                                            </li>
+
+                                        </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+
+                                            <a href="javascript:void(0)">Authenticate</a>
+                                            <ul class="sub-menu">
+                                                {% if request.user.is_authenticated %}
+                                                <li><a href=" {% url 'user_logout' %}"> Logout </a></li>
+                                                {% else %}
+                                                <li><a href=" {% url 'auth' %}"> Login</a></li>
+                                                <li><a href="{% url 'auth' %}">Register</a></li>
+                                                {% endif %}
+
+                                            </ul>
+
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'contact' %}">Contact</a>
+                                        </li>
+                                        </ul>
+
+                                        <div class="extras">
+                                            <a href="javascript:void(0)" id="mobile-menu" class="menu-start">
+                                                <svg id="ham-menu" viewBox="0 0 100 100">
+                                                    <path class="line line1"
+                                                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                                                    <path class="line line2" d="M 20,50 H 80" />
+                                                    <path class="line line3"
+                                                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                                                </svg>
+                                            </a>
+                                            <a href="javascript:void(0)" id="desktop-menu" class="menu-start">
+                                                <svg id="ham-menue" viewBox="0 0 100 100">
+                                                    <path class="line line1"
+                                                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                                                    <path class="line line2" d="M 20,50 H 80" />
+                                                    <path class="line line3"
+                                                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                class="theme-btn">Appointment
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-nav" id="mobile-nav">
+                    <div class="res-log">
+                        <a href="{% url 'home' %}">
+                            <div style="display: flex; fill:red; ">
+
+                                <svg width="50" height="50" viewBox="0 0 261 235" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+                                    </path>
+                                </svg>
+                                <div class=" text-white h5 text-nowrap">
+                                    Fitness First
+                                    <div class=" text-white h5">
+                                        Gym</div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                    <ul>
+                        <li class=" ">
+                            <a href=" {% url 'home' %}">Home</a>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="javascript:void(0)">About</a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'about_us' %}">AbouT</a></li>
+                                <li><a href="{% url 'features_benefit' %}">features & benefits</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="JavaScript:void(0)">Pages</a>
+                            <ul class="sub-menu">
+
+                                {% if request.user.is_authenticated %}
+                                <li><a href="{% url  'profile' %}">Profile</a></li>
+                                {% else %}
+
+
+                                {% endif %}
+                                <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">Services</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'services' %}">services</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="">
+
+                                    <a href="{% url  'packages' %}">Packages</a>
+
+
+
+                                </li>
+
+                                {% if request.user.is_authenticated %}
+                                <li><a href="{% url  'user_logout' %}">logout</a></li>
+                                {% else %}
+
+                                <li><a href="{% url  'auth' %}">Login & Register</a></li>
+                                {% endif %}
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{% url  'contact' %}">Contact</a>
+                        </li>
+                    </ul>
+                    <a href="JavaScript:void(0)" id="res-cross"></a>
+                </div>
+                <div class="mobile-nav desktop-menu">
+                    <h2>Solutions for moving better and feeling a healthier choice</h2>
+                    <p class="des">We successfully cope with tasks of varying complexity, provide long-term guarantees
+                        and
+                        regularly master new technologies.</p>
+                    <figure>
+                        <img src="https://via.placeholder.com/320x222" alt="Desktop Menu Image">
+                    </figure>
+                    <h3>Free Consulting</h3>
+                    <p class="num"><a href="callto:(+380)503184707">+234 (000) 000 0000</a></p>
+                    <p class="adrs">Timing: Mon to Sat : 08 pm to 12 am</p>
+                    <ul class="social-media">
+                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="flaticon-twitter"></i></a></li>
+                        <li><a href="#"><i class="flaticon-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- this will extend all navbar and footer in every page its called on -->
+
+
+
+
+
+    <!-- Content Block -->
+
+    {% block content %}
+
+    {% endblock %}
+    <!-- End Content Block -->
+
+
+
+
+
+    <!-- Footer Style One Start -->
+    <footer class="footer-style-one" style="background-image: url(https://via.placeholder.com/1920x732);">
+        <div class="footer-p-1">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-first">
+                        <div class="footer-logo">
+                            <a href="#">
+                                <div style="display: flex; fill:red; ">
+
+                                    <svg width="50" height="50" viewBox="0 0 261 235"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+                                        </path>
+                                    </svg>
+                                    <div class=" text-white h5 text-nowrap">
+                                        Fitness First
+                                        <div class=" text-white h5">
+                                            Gym</div>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="contact-info d-flex-all">
+                            <div class="images d-flex-all justify-content-start">
+                                <figure>
+                                    <img src="https://via.placeholder.com/57x57" alt="Contact Images">
+                                </figure>
+                                <figure>
+                                    <img src="https://via.placeholder.com/57x57" alt="Contact Images">
+                                </figure>
+                                <figure>
+                                    <img src="https://via.placeholder.com/57x57" alt="Contact Images">
+                                </figure>
+                            </div>
+                            <p>expert trainers <span>+234 (000) 000 0 00</span> free call !</p>
+                        </div>
+                        <a href="{% url  'contact' %}" class="theme-btn">Get a Consultation </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-p-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-col">
+                            <h3>Information</h3>
+                            <p>Regular trips to the gym are great, but don't worry if you can't find a large chunk of
+                                time to exercise
+                                every day.</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="flaticon-twitter"></i></a></li>
+                                <li><a href="#"><i class="flaticon-instagram"></i></a></li>
+                                <li><a href="#"><i class="flaticon-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-col">
+                            <h3>Contact</h3>
+                            <ul>
+                                <li>
+                                    <i class="flaticon-maps"></i>
+                                    <p>901 N Pitt Str., Suite 170, VA 22314, Enugu Nigeria</p>
+                                </li>
+                                <li>
+                                    <i class="flaticon-iphone"></i>
+                                    <p><a href="callto:(+234 (000) 000 0000">+234 (000) 000 0000</a></p>
+                                </li>
+                                <li>
+                                    <i class="flaticon-mail"></i>
+                                    <p><a href="mailto:username@domain.com">username@domain.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-col">
+                            <h3>Newsletter</h3>
+                            <p>Signup for our weekly newsletter to get the latest news.</p>
+                            <form>
+                                <input type="email" name="email" placeholder="Enter your email.">
+                                <button>
+                                    <i class="fa-solid fa-arrow-up-long"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="image-gallery">
+            <li>
+                <a href="https://via.placeholder.com/250x150" data-fancybox="gallery">
+                    <i class="flaticon-instagram"></i>
+                </a>
+                <figure><img alt="girl" src="https://via.placeholder.com/250x150"></figure>
+            </li>
+            <li>
+                <a href="https://via.placeholder.com/250x150" data-fancybox="gallery">
+                    <i class="flaticon-instagram"></i>
+                </a>
+                <figure><img alt="girl" src="https://via.placeholder.com/250x150"></figure>
+            </li>
+            <li>
+                <a href="https://via.placeholder.com/250x150" data-fancybox="gallery">
+                    <i class="flaticon-instagram"></i>
+                </a>
+                <figure><img alt="girl" src="https://via.placeholder.com/250x150"></figure>
+            </li>
+            <li>
+                <a href="https://via.placeholder.com/250x150" data-fancybox="gallery">
+                    <i class="flaticon-instagram"></i>
+                </a>
+                <figure><img alt="girl" src="https://via.placeholder.com/250x150"></figure>
+            </li>
+            <li>
+                <a href="https://via.placeholder.com/250x150" data-fancybox="gallery">
+                    <i class="flaticon-instagram"></i>
+                </a>
+                <figure><img alt="girl" src="https://via.placeholder.com/250x150"></figure>
+            </li>
+            <li>
+                <a href="https://via.placeholder.com/250x150" data-fancybox="gallery">
+                    <i class="flaticon-instagram"></i>
+                </a>
+                <figure><img alt="girl" src="https://via.placeholder.com/250x150"></figure>
+            </li>
+            <li>
+                <a href="https://via.placeholder.com/250x150" data-fancybox="gallery">
+                    <i class="flaticon-instagram"></i>
+                </a>
+                <figure><img alt="girl" src="https://via.placeholder.com/250x150"></figure>
+            </li>
+        </ul>
+        <div class="footer-p-3 rights">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                        <p> Fitness First Gym Center<i class="fa-solid fa-heart"></i> © 2025 <a href="#">
+                            </a> All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Style One End -->
+
+    <div id="scroll-percentage"><span id="scroll-percentage-value"></span></div>
+
+    <div class="modal fade popups conslt-popup" id="exampleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://via.placeholder.com/420x591" alt="img">
+                    <div class="contact-form-one popup">
+                        <div class="c-form-2">
+                            <h3>Start Consulting</h3>
+                            <div class="parallax" style="background-image: url({% static 'images/pattren.png' %});">
+                            </div>
+
+                            <form action="{% url 'appointment' %}" method="post">
+                                {% csrf_token %}
+                                <div class="row g-0">
+                                    <input type="text" class="form-control" id="exampleInputText1"
+                                        placeholder="Complete Name" name="Complete_name" required>
+                                </div>
+                                <div class="row g-0">
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Email Address" name="email" required>
+                                </div>
+                                <div class="row g-0">
+                                    <input type="number" class="form-control" id="exampleInputPassword1"
+                                        placeholder="Phone No" name="mobile_number" required>
+                                </div>
+                                <div class="row g-0">
+                                    <select id="inputState-21" class="form-control" name="subject">
+                                        <option selected>Subject</option>
+                                        <option>Subject 1</option>
+                                        <option>Subject 2</option>
+                                        <option>Subject 3</option>
+                                    </select>
+                                </div>
+                                <div class="row g-0">
+                                    <textarea placeholder="Question / Message?" name="question_message"
+                                        required></textarea>
+                                </div>
+                                <button type="submit" class="theme-btn">Submit Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Waypoint -->
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <!-- Counter -->
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <!-- Bootstrap Js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Fancybox Js -->
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <!-- Nice Select Js -->
+    <script src="{% static 'js/jquery.nice-select.js' %}"></script>
+    <!-- Owl Carousal Js -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- Custom Js -->
+    <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

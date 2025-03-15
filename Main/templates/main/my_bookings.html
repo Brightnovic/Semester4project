@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class=" ">
+    <div class="row d-flex-all justify-content-center ">
+        <div class="col-12">
+            <style>
+                body {
+
+                    color: white;
+
+                }
+
+                h1 {
+                    text-align: center;
+                    color: rgb(245, 10, 10);
+                }
+
+                table {
+                    width: 80%;
+                    margin: auto;
+                    border-collapse: collapse;
+                    background-color: #222;
+                }
+
+                th,
+                td {
+                    padding: 10px;
+                    border: 1px solid aqua;
+                    text-align: center;
+                }
+
+                th {
+                    background-color: aqua;
+                    color: black;
+                }
+
+                a {
+                    color: aqua;
+                    text-decoration: none;
+                }
+
+                .cancel-btn {
+                    color: red;
+                    cursor: pointer;
+                }
+
+                .disabled-btn {
+                    color: gray;
+                    cursor: not-allowed;
+                }
+
+                .center {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+            </style>
+
+
+            <br>
+            <br>
+            <br>
+
+
+            <h1> Booked </h1>
+            <br>
+            <br>
+            <br>
+            {% if bookings %}
+            <table class="table-control">
+                <tr>
+                    <th>Package</th>
+                    <th>Booking Date</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                    <th>Payment Status</th>
+                    <th>Actions</th>
+                    <th>Trainer</th>
+                </tr>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.package.name }}</td>
+                    <td>{{ booking.booking_date }}</td>
+                    <td>{{ booking.start_date }}</td>
+                    <td>{{ booking.end_date }}</td>
+                    <td>{{ booking.status }}</td>
+
+                    {% if booking.payment_status == "pending" %}
+                    <td>{{ booking.payment_status }} <a href="{% url 'initialize_payment' booking.id %}"
+                            class="btn theme-btn">Pay
+                            Now</a></td>
+                    {% else %}
+                    <td>{{ booking.payment_status }} </td>
+                    {% endif %}
+                    <td>
+
+                        {% if booking.payment_status == "pending" %}
+                        <p class="btn disabled">Pending Payment</p>
+                        {% elif booking.status == "pending" %}
+                        <a href="{% url 'approve_booking' booking.id %}" class="btn approve">Approve</a>
+                        <a href="{% url 'reject_booking' booking.id %}" class="btn reject">Reject</a>
+                        {% else %}
+                        <p class="btn disabled">Handled</p>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        <a href="{% url 'trainer_profile' booking.package.trainer_id %}">
+                            {{ booking.package.trainer.user.username }}
+                        </a>
+
+
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+            {% else %}
+            <p class="center">You have no bookings yet.</p>
+            {% endif %}
+
+
+
+
+
+            <script>
+                function confirmCancellation(url) {
+                    let confirmAction = confirm("Are you sure you want to cancel this booking?");
+                    if (confirmAction) {
+                        window.location.href = url;
+                    }
+                }
+            </script>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

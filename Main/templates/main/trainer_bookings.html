@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class=" ">
+    <div class="row d-flex-all justify-content-center ">
+        <div class="col-12">
+            <!-- this style can't be added to  css files other files will override it  -->
+            <style>
+                body {
+                    background-color: black;
+                    color: white;
+                    font-family: Arial, sans-serif;
+                }
+
+                h1 {
+                    text-align: center;
+                    color: red;
+                }
+
+                table {
+                    width: 80%;
+                    margin: auto;
+                    border-collapse: collapse;
+                    background-color: #222;
+                    margin-top: 20px;
+                }
+
+                th,
+                td {
+                    padding: 10px;
+                    border: 1px solid aqua;
+                    text-align: center;
+                }
+
+                th {
+                    background-color: aqua;
+                    color: black;
+                }
+
+                a {
+                    color: aqua;
+                    text-decoration: none;
+                }
+
+                .btn {
+                    padding: 7px 15px;
+                    margin: 3px;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .approve {
+                    background-color: green;
+                    color: white;
+                }
+
+                .reject {
+                    background-color: red;
+                    color: white;
+                }
+
+                .disabled {
+                    background-color: gray;
+                    color: white;
+                    cursor: not-allowed;
+                    display: inline-block;
+                    padding: 7px 15px;
+                    border-radius: 5px;
+                    font-weight: bold;
+                }
+
+                .status-approved {
+                    color: lightgreen;
+                    font-weight: bold;
+                }
+
+                .status-rejected {
+                    color: tomato;
+                    font-weight: bold;
+                }
+
+                .status-pending {
+                    color: yellow;
+                    font-weight: bold;
+                }
+            </style>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <h1 class="h1 text-red-700">Trainer Bookings</h1>
+
+            {% if bookings %}
+            <table class="tablee">
+                <tr class="tr active">
+                    <th>Name</th>
+                    <th>Package</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                    <th>Payment Status</th>
+                    <th>Actions</th>
+                </tr>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.user.full_name }}</td>
+                    <td>{{ booking.package.name }}</td>
+                    <td>{{ booking.start_date }}</td>
+                    <td>{{ booking.end_date }}</td>
+                    <td>
+                        {% if booking.status == "confirmed" %}
+                        <span class="status-approved">Approved</span>
+                        {% elif booking.status == "cancelled" %}
+                        <span class="status-rejected">Rejected</span>
+                        {% else %}
+                        <span class="status-pending">Pending</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ booking.payment_status }}</td>
+                    <td>
+                        {% if booking.status == "pending" %}
+                        <a href="{% url 'approve_booking' booking.id %}" class="btn approve">Approve</a>
+                        <a href="{% url 'reject_booking' booking.id %}" class="btn reject">Reject</a>
+                        {% else %}
+                        <span class="disabled">Handled</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% else %}
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p style="text-align: center;">No bookings found.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% endif %}
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

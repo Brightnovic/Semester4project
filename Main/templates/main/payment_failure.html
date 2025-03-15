@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container text-center mt-5">
+    <div class="alert alert-danger">
+        <h1 class="display-4">❌ Payment Failed</h1>
+        <p class="lead">Unfortunately, your payment was not successful. Please try again.</p>
+        <a href="/" class="theme-btn">Try Again</a>
+    </div>
+    <a href="{% url 'payment_failure_pdf' %}" class="theme-btn" download="payment.pdf">Download pdf</a>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

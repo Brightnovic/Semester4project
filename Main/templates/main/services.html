@@ -1,0 +1,344 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Banner Style One Start -->
+<section class="banner-style-one">
+  <div class="parallax" style="background-image: url(https://via.placeholder.com/1920x640);"></div>
+  <div class="container">
+    <div class="row">
+      <div class="banner-details">
+        <h2>Services</h2>
+        <p>our values and vaulted us to the top of our industry.</p>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrums">
+    <div class="container">
+      <div class="row">
+        <ul>
+          <li>
+            <a href="{% url 'home' %}">
+              <i class="fa-solid fa-house"></i>
+              <p>Home</p>
+            </a>
+          </li>
+          <li class="current">
+            <p>Services</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Banner Style One End -->
+
+<!-- Service Style One Start -->
+<section class="gap service-style-one">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="service-data">
+          <i class="flaticon-gym-equipment"></i>
+          <h3><a href="{% url 'home' %}">exercise cycle</a></h3>
+          <p>Lorem ipsum dolor sit amet, consectne auctor aliquet. Aenean sollicitudi bibendum auctor.</p>
+          <a class="icon" href="">
+            <i class="fa-solid fa-angles-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="service-data">
+          <i class="flaticon-gym"></i>
+          <h3><a href="">Expert Trainers</a></h3>
+          <p>Lorem ipsum dolor sit amet, consectne auctor aliquet. Aenean sollicitudi bibendum auctor.</p>
+          <a class="icon" href=" ">
+            <i class="fa-solid fa-angles-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="service-data mb-0">
+          <i class="flaticon-work-from-home"></i>
+          <h3><a href="  ">Workout Schedule</a></h3>
+          <p>Lorem ipsum dolor sit amet, consectne auctor aliquet. Aenean sollicitudi bibendum auctor.</p>
+          <a class="icon" href="  ">
+            <i class="fa-solid fa-angles-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Service Style Two End -->
+
+<!-- services Start -->
+<section class="gap no-top construction-services">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4">
+        <div class="services-nav">
+          <h2>What We Provide</h2>
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Weight Liftings</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Personal Trainer</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-reno-tab" data-bs-toggle="pill" data-bs-target="#pills-reno"
+                type="button" role="tab" aria-controls="pills-reno" aria-selected="false">Yoga Classes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-bld-tab" data-bs-toggle="pill" data-bs-target="#pills-bld"
+                type="button" role="tab" aria-controls="pills-bld" aria-selected="false">Free Consulting</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <figure>
+              <img class="w-100" src="https://via.placeholder.com/856x531" alt="Services Nav Image 1">
+              <figcaption>
+                <h3>Online Classes</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adi piscing elit, sed do eiusmod tempor incididunt ut
+                  labore et .</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <figure>
+              <img class="w-100" src="https://via.placeholder.com/856x531" alt="Services Nav Image 2">
+              <figcaption>
+                <h3>Weight Liftings</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adi piscing elit, sed do eiusmod tempor incididunt ut
+                  labore et .</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <figure>
+              <img class="w-100" src="https://via.placeholder.com/856x531" alt="Services Nav Image 3">
+              <figcaption>
+                <h3>Personal Trainer</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adi piscing elit, sed do eiusmod tempor incididunt ut
+                  labore et .</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="tab-pane fade" id="pills-reno" role="tabpanel" aria-labelledby="pills-reno-tab">
+            <figure>
+              <img class="w-100" src="https://via.placeholder.com/856x531" alt="Services Nav Image 4">
+              <figcaption>
+                <h3>Yoga Classes</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adi piscing elit, sed do eiusmod tempor incididunt ut
+                  labore et .</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="tab-pane fade" id="pills-bld" role="tabpanel" aria-labelledby="pills-bld-tab">
+            <figure>
+              <img class="w-100" src="https://via.placeholder.com/856x531" alt="Services Nav Image 5">
+              <figcaption>
+                <h3>Free Consulting</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adi piscing elit, sed do eiusmod tempor incididunt ut
+                  labore et .</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Services End -->
+
+<!-- Counter Style One Start -->
+<section class="gap no-top counter-style-one">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="counter-data">
+          <div class="count">
+            <span class="counter">10</span>+<i>Years</i>
+          </div>
+          <h4>Professional Experience</h4>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="counter-data upper-space">
+          <div class="count">
+            <span class="counter">90</span><i>Trainers</i>
+          </div>
+          <h4>Experts Trainers Team Members</h4>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="counter-data">
+          <div class="count">
+            <span class="counter">21</span>+<i>Locations</i>
+          </div>
+          <h4>Differnt centers in different states</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Counter Style One End -->
+
+{% load static %}
+<video autoplay muted loop>
+  <source src="{% static 'assets/videos/video.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<!-- Service Style Two Start -->
+<section class="gap service-style-two">
+  <div class="heading">
+    <figure>
+      <img src="assets/images/heading-icon.png" alt="heading-icon-2">
+    </figure>
+    <span>What We Provide</span>
+    <h2>Exclusive Services</h2>
+  </div>
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="service-two-box" style="background-image: url(https://via.placeholder.com/480x380);">
+          <h3><a href=" ">best equipment</a></h3>
+          <p>Designing and Building The Most Beautiful Custom Homes.</p>
+          <i class="flaticon flaticon-fitness"></i>
+          <div class="service-two-icon d-flex-all justify-content-start">
+            <a href=" ">
+              <i class="fa-solid fa-arrow-up-long"></i>
+            </a>
+          </div>
+          <svg class="theme-shaps" width="261" height="235" viewBox="0 0 261 235" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="service-two-box" style="background-image: url(https://via.placeholder.com/480x380);">
+          <h3><a href=" ">expert trainers</a></h3>
+          <p>Designing and Building The Most Beautiful Custom Homes.</p>
+          <i class="flaticon-muscle-1 flaticon"></i>
+          <div class="service-two-icon d-flex-all justify-content-start">
+            <a href="  ">
+              <i class="fa-solid fa-arrow-up-long"></i>
+            </a>
+          </div>
+          <svg class="theme-shaps" width="261" height="235" viewBox="0 0 261 235" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="service-two-box" style="background-image: url(https://via.placeholder.com/480x380);">
+          <h3><a href="  ">group training</a></h3>
+          <p>Designing and Building The Most Beautiful Custom Homes.</p>
+          <i class="flaticon flaticon-jump-rope"></i>
+          <div class="service-two-icon d-flex-all justify-content-start">
+            <a href="  ">
+              <i class="fa-solid fa-arrow-up-long"></i>
+            </a>
+          </div>
+          <svg class="theme-shaps" width="261" height="235" viewBox="0 0 261 235" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="service-two-box" style="background-image: url(https://via.placeholder.com/480x380);">
+          <h3><a href="  ">diet nutrition</a></h3>
+          <p>Designing and Building The Most Beautiful Custom Homes.</p>
+          <i class="flaticon flaticon-weight-loss"></i>
+          <div class="service-two-icon d-flex-all justify-content-start">
+            <a href="  ">
+              <i class="fa-solid fa-arrow-up-long"></i>
+            </a>
+          </div>
+          <svg class="theme-shaps" width="261" height="235" viewBox="0 0 261 235" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="service-two-box" style="background-image: url(https://via.placeholder.com/480x380);">
+          <h3><a href="  ">workout classes</a></h3>
+          <p>Designing and Building The Most Beautiful Custom Homes.</p>
+          <i class="flaticon flaticon-exercise"></i>
+          <div class="service-two-icon d-flex-all justify-content-start">
+            <a href="  ">
+              <i class="fa-solid fa-arrow-up-long"></i>
+            </a>
+          </div>
+          <svg class="theme-shaps" width="261" height="235" viewBox="0 0 261 235" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="service-two-box" style="background-image: url(https://via.placeholder.com/480x380);">
+          <h3><a href="  ">yoga relaxation</a></h3>
+          <p>Designing and Building The Most Beautiful Custom Homes.</p>
+          <i class="flaticon flaticon-lotus-position"></i>
+          <div class="service-two-icon d-flex-all justify-content-start">
+            <a href="  ">
+              <i class="fa-solid fa-arrow-up-long"></i>
+            </a>
+          </div>
+          <svg class="theme-shaps" width="261" height="235" viewBox="0 0 261 235" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M261 0L190.483 144.088H128.135L162.104 102.062L188.333 45.885H89.8666L70.0873 87.4818H117.815L0 235L49.0181 125.219H0L61.9176 0H261Z">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Service Style Two End -->
+
+<!-- CTA Section Start -->
+<section class="cta-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="cta-data">
+          <h2>Let's Start Workout!</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adi piscing elit, sed do eiusmod tempor incididunt ut labore et .
+          </p>
+          <a href="#" class="theme-btn">Build a Project </a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="cta-data">
+          <figure>
+            <img src="https://via.placeholder.com/858x597" alt="Building-2 Pic">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CTA Section End -->
+
+
+{% endblock %}

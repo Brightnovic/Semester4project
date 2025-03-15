@@ -1,0 +1,260 @@
+/* Profile card */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins' sans-serif;
+}
+
+body {
+    background-color: #000000;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: #000000;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-box {
+    background: #8d6969;
+    text-align: center;
+    padding: 20px 50px;
+    color: #f2f2f2;
+    position: relative;
+    border-radius: 20px;
+    backdrop-filter: blur(22px) saturate(200%);
+    -webkit-backdrop-filter: blur(22px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.44);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.menu-icon {
+    width: 25px;
+    position: absolute;
+    right: 40px;
+    top: 30px;
+    cursor: pointer;
+}
+
+.profile-pix {
+    width: 100px;
+    border-radius: 60%;
+    background: #f2f2f2;
+    padding: 6px;
+    margin-top: 40px;
+}
+
+svg {
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #333;
+    font-size: 15px;
+    font: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ccc;
+}
+
+/* Form Section */
+
+.form-container {
+    width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    border-radius: 20px;
+}
+
+form {
+    margin: 0;
+    padding: 30px 10px;
+    background: #f00b2a;
+    border-radius: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="Username"],
+input[type="Email"],
+input[type="Password"] {
+    width: 100%;
+    height: 25px;
+    padding: 15px;
+    border: 1px solid #f2f2f2;
+    outline: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+input::placeholder {
+    color: #ccc;
+    font-size: 17px;
+}
+
+input[type="Submit"] {
+    background: #f2f2f2;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+input[type="Submit"]:hover {
+    background: #eba2c0;
+}
+
+/* RESET PASSWORD */
+
+.wrapper {
+    background: #333;
+    width: 100%;
+    height: 100vh;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-container {
+    width: 500px;
+    background: #444444;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.title-section {
+    margin-bottom: 30px;
+}
+
+.title {
+    color: #e4e4e4;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.desc {
+    color: #e4e4e4;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group .label-title {
+    color: #e4e4e4;
+    text-transform: capitalize;
+    margin-bottom: 11px;
+    font-size: 20px;
+    display: block;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    background: none;
+    color: #e4e4e4;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 300;
+    border: 1px solid #ccc;
+    padding: 9px 60px 9px 52px;
+    outline: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.darko {
+    background-color: black !important;
+}
+
+
+
+.djangomessage-error,
+.djangomessage-success {
+    z-index: 999999999;
+    position: relative;
+    background-color: black;
+    top: 20px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: larger;
+    padding: 1rem;
+    border-radius: 5px;
+    animation: fade-out 10s forwards;
+}
+
+.djangomessage-error {
+    color: red;
+}
+
+.djangomessage-success {
+    color: green;
+}
+
+.dcenter {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+
+.ibutton {
+    background-color: #020111;
+    font-weight: bold;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    box-shadow: none;
+}
+
+.ibutton:hover {
+    background-color: #020111;
+    font-weight: bolder;
+
+}

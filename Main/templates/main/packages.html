@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% for package in packages %}
+<section class="gap blog-style-one our-blog-one">
+    <div class="container">
+        <div class="row g-4 d-flex d-flex-all justify-content-center">
+
+            <div class="col-lg-5">
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <figure>
+                            <img src="https://via.placeholder.com/469x269" alt="blog-img-1">
+                        </figure>
+                        <a href="#">
+                            <i class="fa-solid fa-angles-right"></i>
+                        </a>
+                    </div>
+                    <div class="blog-data">
+
+                        <h2>
+                            <p class="h3  text-white"> {{ package.name}} {{ package.package_type}} </p>
+                        </h2>
+                        <h2>
+                            <p class="h3 text-danger">Price: ${{ package.price}}</p>
+                        </h2>
+                        <h2>
+                            <p class="h3"> {{ package.duration}} Months</p>
+                        </h2>
+                        <br>
+                        <p class="text-white">Description: {{ package.description }}</p>
+                        <p class="text-white"> {{ package.bookings_count }} People Already Booked</p>
+                        <br>
+                        <br>
+                        <div class="blog-author d-flex-all justify-content-start">
+                            <div class="author-img">
+                                <figure>
+                                    <img src="https://via.placeholder.com/60x60" alt="Package Trainer by">
+                                </figure>
+                            </div>
+                            <div class="details">
+                                <h3 class="text-white"> <span>by</span> <a
+                                        href="{% url 'trainer_profile' package.trainer_id %}">{{ package.trainer }}</a>
+                                </h3>
+                            </div>
+                            <br>
+                            <br>
+
+                        </div>
+                        <div class="blog-date "> <a href="{% url 'book_package'  package.id %}" class="theme-btn">Get
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endfor %}
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<div class="container">
+    <div class="row d-flex-all justify-content-center ">
+
+        <br>
+        <br>
+        <br>
+        <div class="col-7">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row d-flex-all justify-content-center">
+                <div class="col-5"> <img src="{{ user.profile_photo.url }}" class="image-control " style="
+        height: 13rem;
+        width: 13rem;
+        border-radius: 50%;
+        border: red solid 6px;
+        ">
+                    <h3 class="h1   text-white">{{ user.full_name }}</h3>
+                    <p>{{ user.trainer.bio}}</p>
+
+                    <br>
+                    <div class="social-media">
+
+                        <ul class="social-media">
+                            <li><a href="{{ user.trainer.facebook_handle}}"><i class="fa-brands fa-facebook-f"></i></a>
+                            </li>
+                            <li><a href="{{ user.trainer.X_handle}}"><i class="flaticon-twitter"></i></a></li>
+                            <li><a href="{{ user.trainer.instagram_handle}}""><i class=" flaticon-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <!-- User Input Section -->
+
+            <div class="form-container">
+                <form method="POST" class=" " action="{% url 'update_profile' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="id_profile_photo" class="text-white"> select Photo:</label>
+
+                        <input type="file" name="profile_photo" id="id_profile_photo" accept="image/*" class="sss">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_full_name" class="text-white">Full Name:</label>
+                        <input type="text" name="full_name" id="id_full_name" value="{{ user.full_name }}" required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="id_email" class="text-white">Email:</label>
+                        <input type="email" name="email" id="id_email" value="{{ user.email }}" required>
+
+
+                    </div>
+                    <div class="form-group">
+
+
+                        <label for="id_username" class="text-white">Username:</label>
+                        <input type="text" name="username" id="id_username" value="{{ user.username }}" required>
+
+                    </div>
+
+                    <div class="form-group">
+
+
+                        <div>Joined: <input type="text" value="{{ user.date_joined }}" readonly></div>
+                    </div>
+
+
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" value="Update Profile" class="text-white theme-btn">
+                    </div>
+                    <br>
+                    <br>
+
+                    <br>
+                    <br>
+                </form>
+            </div>
+            {% if user.trainer.user == "" %}
+
+
+            <button class="theme-btn"> <a href="{% url 'my_bookings' %}" class="   btn text-white">View My
+                    Bookings</a></button>
+            {% endif %}
+
+            <button class=" theme-btn  btn text-white">
+                <a href="{% url 'change_password' %}" class="  text-white">change password</a>
+            </button>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+
+            {% if user.trainer.user == "" %}
+
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+            {% else %}
+
+
+            <form method="POST" action="{% url 'ChangeTrainerInfo' %}" class="   ">
+                {% csrf_token %}
+
+
+
+                <div class="form-group">
+                    <label for="id_bio" class="text-white">Bio:</label>
+                    <input type="text" name="bio" id="id_bio" value="{{ user.trainer.bio}}" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="id_expertise" class="text-white">expertise:</label>
+                    <input type="text" name="expertise" id="id_expertise" value="{{ user.trainer.expertise}}" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="id_instagram_handle" class="text-white">instagram_handle</label>
+                    <input type="text" name="instagram_handle" id="id_instagram_handle"
+                        value="{{ user.trainer.instagram_handle}}" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="id_facebook_handle" class="text-white">facebook_handle</label>
+                    <input type="text" name="facebook_handle" id="id_facebook_handle"
+                        value="{{ user.trainer.facebook_handle}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_linkedin_handle" class="text-white">linkedin_handle</label>
+                    <input type="text" name="linkedin_handle" id="id_linkedin_handle"
+                        value="{{ user.trainer.linkedin_handle}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_X_handle" class="text-white">X_handle</label>
+                    <input type="text" name="X_handle" id="id_X_handle" value="{{ user.trainer.X_handle}}" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Update   Info" class="text-white theme-btn">
+                </div>
+                <br>
+                <br>
+
+                <button><a href="{% url 'trainer_bookings' %}" class="text-white theme-btn"> view my
+                        class</a></button>
+            </form>
+        </div>
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

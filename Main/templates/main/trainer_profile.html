@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<div class="container">
+    <div class="row d-flex-all justify-content-center ">
+
+        <br>
+        <br>
+        <br>
+        <div class="col-7">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row d-flex-all justify-content-center">
+                <div class="col-5"> <img src="{{ user.profile_photo.url }}" class="image-control " style="
+        height: 13rem;
+        width: 13rem;
+        border-radius: 50%;
+        border: red solid 6px;
+        ">
+                    <h3 class="h1   text-white">{{ user.full_name }}</h3>
+                    <p>{{ user.trainer.bio}}</p>
+                    <p>{{ user.email }}</p>
+                    <p>{{ user.trainer.expertise}}</p>
+
+                    <br>
+                    <div class="social-media">
+
+                        <ul class="social-media">
+                            <li><a href="{{ user.trainer.facebook_handle}}"><i class="fa-brands fa-facebook-f"></i></a>
+                            </li>
+                            <li><a href="{{ user.trainer.X_handle}}"><i class="flaticon-twitter"></i></a></li>
+                            <li><a href="{{ user.trainer.instagram_handle}}""><i class=" flaticon-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+
+
+
+
+            <style>
+                body {
+                    background-color: black;
+                    color: white;
+                    font-family: Arial, sans-serif;
+                }
+
+                h1 {
+                    text-align: center;
+                    color: aqua;
+                }
+
+                .profile-container {
+                    width: 100%;
+                    margin: auto;
+                    text-align: center;
+                    padding: 20px;
+                    border: 2px solid aqua;
+                    border-radius: 10px;
+                    background-color: #222;
+                }
+
+                .package-list {
+                    list-style: none;
+                    padding: 0;
+                }
+
+                .package-list li {
+                    background-color: #333;
+                    padding: 10px;
+                    margin: 5px;
+                    border-radius: 5px;
+                }
+
+                a {
+                    color: aqua;
+                    text-decoration: none;
+                }
+            </style>
+
+
+
+            <div class="profile-container">
+                <p><strong>Full Name:</strong> {{ trainer.user.username }}</p>
+                <p><strong>Bio:</strong> {{ trainer.bio }}</p>
+                <p><strong>Expertise:</strong> {{ trainer.expertise }}</p>
+
+                <h2>Booked Packages</h2>
+                <ul class="package-list">
+                    {% for package in trainer_packages %}
+                    <li>{{ package.name }} - ${{ package.price }}</li>
+                    {% empty %}
+                    <p>No packages available.</p>
+                    {% endfor %}
+                </ul>
+
+                <br>
+
+            </div>
+
+
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
