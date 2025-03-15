@@ -31,9 +31,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://semester4project.onrender.com",
-]
 
 
 # Application definition
