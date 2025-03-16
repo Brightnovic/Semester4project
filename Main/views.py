@@ -123,7 +123,7 @@ def auth_view(request):
                  
                 messages.error(request, f"Error: {str(e)}")
                 return redirect('auth')
-    return render(request, 'main/login.html')
+    return render(request, 'Main/login.html')
 
 
 def user_logout(request):
@@ -363,7 +363,7 @@ def change_password(request):
 def home(request):
     trainers = Trainer.objects.all()
     packages = Package.objects.all()
-    return render(request, 'main/home.html', {
+    return render(request, 'Main/home.html', {
                                                 'trainers':
                                                trainers,
                                                'packages':
@@ -375,7 +375,7 @@ def home(request):
 def packages(request):
     trainers = Trainer.objects.all()
     packages = Package.objects.all()
-    return render(request, 'main/packages.html', {
+    return render(request, 'Main/packages.html', {
                                                 'trainers':
                                                trainers,
                                                'packages':
@@ -389,7 +389,7 @@ def packages(request):
 def booked_history(request):
     user = request.user
     booked = Booking.objects.all(user)
-    return render(request, 'main/home.html', {'booked': booked})
+    return render(request, 'Main/home.html', {'booked': booked})
 
 
 from django.shortcuts import render, get_object_or_404
