@@ -44,11 +44,11 @@ def appointment(request):
 
 def features_benefit(request):
 
-    return render(request, 'Main/features-and-benefits.html')
+    return render(request, 'main/features-and-benefits.html')
  
 def services(request):
 
-    return render(request, 'Main/services.html')
+    return render(request, 'main/services.html')
 
 
 
@@ -123,7 +123,7 @@ def auth_view(request):
                  
                 messages.error(request, f"Error: {str(e)}")
                 return redirect('auth')
-    return render(request, 'Main/login.html')
+    return render(request, 'main/login.html')
 
 
 def user_logout(request):
@@ -141,7 +141,7 @@ def profile(request):
     
      
     form = ProfileUpdateForm(instance=request.user)
-    return render(request, 'Main/profile.html', {'form': form})
+    return render(request, 'main/profile.html', {'form': form})
 
 
 @login_required
@@ -153,7 +153,7 @@ def profile2(request):
     trainer_packages = Package.objects.filter(trainer=request.user.trainer)  # Use `request.user.trainer`
     bookings = Booking.objects.filter(package__in=trainer_packages).order_by('-booking_date')
 
-    return render(request, 'Main/profile2.html', {'bookings': bookings})
+    return render(request, 'main/profile2.html', {'bookings': bookings})
 
 
 
@@ -161,7 +161,7 @@ def profile2(request):
 def about_us(request):
     trainers = Trainer.objects.all()
     packages = Package.objects.all()
-    return render(request, 'Main/about.html', {
+    return render(request, 'main/about.html', {
                                                 'trainers':
                                                trainers,
                                                'packages':
@@ -177,7 +177,7 @@ def general_profile(request, user_id):
      
      
        
-    return render(request, 'Main/general_profile.html', {'user': user})
+    return render(request, 'main/general_profile.html', {'user': user})
 
 
 
@@ -200,7 +200,7 @@ def update_profile(request):
              
             messages.error(request, "Form is not Valid")
 
-    return render(request, 'Main/profile.html', {'form': form, 'form2': form2})
+    return render(request, 'main/profile.html', {'form': form, 'form2': form2})
 
 @login_required
 def ChangeTrainerInfo(request):
@@ -225,7 +225,7 @@ def ChangeTrainerInfo(request):
             
             messages.error(request, "Form is not valid")
 
-    return render(request, 'Main/profile.html', {'form2': UpdateTrainerInfo(instance=trainer)})  # Re-render the form if GET request
+    return render(request, 'main/profile.html', {'form2': UpdateTrainerInfo(instance=trainer)})  # Re-render the form if GET request
 
 
 @login_required
@@ -266,7 +266,7 @@ def trainer_bookings(request):
     trainer_packages = Package.objects.filter(trainer=request.user.trainer)  # Use `request.user.trainer`
     bookings = Booking.objects.filter(package__in=trainer_packages).order_by('-booking_date')
 
-    return render(request, 'Main/trainer_bookings.html', {'bookings': bookings})
+    return render(request, 'main/trainer_bookings.html', {'bookings': bookings})
 
 
 @login_required
@@ -284,7 +284,7 @@ def set_trainer_availability(request):
             form.save()
             return redirect('trainer_bookings')
 
-    return render(request, 'Main/set_availability.html', {'form': form})
+    return render(request, 'main/set_availability.html', {'form': form})
 
 
 
@@ -332,7 +332,7 @@ def book_package(request, package_id):
 @login_required
 def my_bookings(request):
     bookings = Booking.objects.filter(user=request.user).order_by('-booking_date')
-    return render(request, 'Main/my_bookings.html', {'bookings': bookings})
+    return render(request, 'main/my_bookings.html', {'bookings': bookings})
 
 @login_required
 def cancel_booking(request, booking_id):
@@ -356,14 +356,14 @@ def change_password(request):
             return redirect('profile')
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'Main/change_password.html', {'form': form})
+    return render(request, 'main/change_password.html', {'form': form})
 
 
  
 def home(request):
     trainers = Trainer.objects.all()
     packages = Package.objects.all()
-    return render(request, 'Main/home.html', {
+    return render(request, 'main/home.html', {
                                                 'trainers':
                                                trainers,
                                                'packages':
@@ -375,7 +375,7 @@ def home(request):
 def packages(request):
     trainers = Trainer.objects.all()
     packages = Package.objects.all()
-    return render(request, 'Main/packages.html', {
+    return render(request, 'main/packages.html', {
                                                 'trainers':
                                                trainers,
                                                'packages':
@@ -389,7 +389,7 @@ def packages(request):
 def booked_history(request):
     user = request.user
     booked = Booking.objects.all(user)
-    return render(request, 'Main/home.html', {'booked': booked})
+    return render(request, 'main/home.html', {'booked': booked})
 
 
 from django.shortcuts import render, get_object_or_404
@@ -401,7 +401,7 @@ def trainer_profile(request, trainer_id):
     trainer = get_object_or_404(Trainer, id=trainer_id)  # ✅ Fetch the Trainer instance
     trainer_packages = Package.objects.filter(trainer=trainer)  # ✅ Get only this trainer's packages
 
-    return render(request, 'Main/trainer_profile.html', {
+    return render(request, 'main/trainer_profile.html', {
         'trainer': trainer,
         'trainer_packages': trainer_packages
     })
@@ -410,7 +410,7 @@ def trainer_profile(request, trainer_id):
 
 def contact(request):
 
-    return render(request, 'Main/contact.html')
+    return render(request, 'main/contact.html')
 
 
 
@@ -470,12 +470,12 @@ def verify_payment(request, booking_id):
         booking.status = "confirmed"
         booking.save()
 
-        return render(request , 'Main/payment_success.html')  # Redirect to a success page
+        return render(request , 'main/payment_success.html')  # Redirect to a success page
     else:
-        return render(request , 'Main/payment_failure.html')  # Redirect to a failure page
+        return render(request , 'main/payment_failure.html')  # Redirect to a failure page
 
 
 
 def custom_404(request, exception):
     print("runining 404")
-    return render(request, 'Main/404.html', status=404)
+    return render(request, 'main/404.html', status=404)
